@@ -14,6 +14,7 @@ public class ParkingLot {
     public String isRightTicket(Ticket ticket){
         if (!tickets.contains(ticket))
             return "can't get car.";
+        tickets.remove(ticket);
         return new ParkingBoy().giveCar(ticket).getCarId();
     }
 }

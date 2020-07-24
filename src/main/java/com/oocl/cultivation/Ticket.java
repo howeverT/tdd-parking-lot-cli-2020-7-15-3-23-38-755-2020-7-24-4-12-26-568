@@ -29,11 +29,12 @@ public class Ticket {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ticket ticket = (Ticket) o;
-        return Objects.equals(id, ticket.id);
+        return Objects.equals(id, ticket.id) &&
+                Objects.equals(carId, ticket.carId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, carId);
     }
 }
