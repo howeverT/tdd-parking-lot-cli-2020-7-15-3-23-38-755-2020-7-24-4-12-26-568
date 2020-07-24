@@ -49,5 +49,17 @@ class ParkingBoyFacts {
         assertEquals("5678", ticket2.getId());
     }
 
+    @Test
+    void should_return_correct_car_when_fetching_car_given_ticket_1234_and_5678() {
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Ticket ticket1 = new Ticket("1234", "C001");
+        Ticket ticket2 = new Ticket("5678", "C002");
 
+        Car car1 = parkingBoy.giveCar(ticket1);
+        Car car2 = parkingBoy.giveCar(ticket2);
+
+        assertEquals("C001", car1.getCarId());
+        assertEquals("C002", car2.getCarId());
+
+    }
 }
