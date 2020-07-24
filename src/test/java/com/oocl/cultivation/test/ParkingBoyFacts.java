@@ -62,4 +62,5 @@ class ParkingBoyFacts {
         assertEquals("C002", car2.getCarId());
 
     }
+
 }
