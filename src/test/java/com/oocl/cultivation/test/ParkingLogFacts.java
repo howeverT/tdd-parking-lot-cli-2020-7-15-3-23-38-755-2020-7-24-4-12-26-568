@@ -26,7 +26,7 @@ public class ParkingLogFacts {
     }
 
     @Test
-    void should_return_cant_get_car_when_fetching_car_given_no_ticket_to_get_car_1_but_give_no_ticket() {
+    void should_return_cant_get_car_when_fetching_car_given_no_ticket_to_get_car_1() {
         ParkingLot parkingLot = new ParkingLot();
         HashSet<Ticket> ticketHashSet = new HashSet<>();
         ticketHashSet.add(new Ticket("1234", "C001"));
@@ -38,5 +38,6 @@ public class ParkingLogFacts {
 
         assertEquals("can't get car.", isRight);
     }
+
 
 }
