@@ -1,5 +1,7 @@
 package com.oocl.cultivation;
 
+import java.util.List;
+
 public class ParkingBoy {
 
     public Ticket giveTicket(Car car){
@@ -8,5 +10,9 @@ public class ParkingBoy {
 
     public Car giveCar(Ticket ticket){
         return new Car(ticket.getCarId());
+    }
+
+    public List<Ticket> giveMultiTicket(List<Car> cars){
+        return null;
     }
 }

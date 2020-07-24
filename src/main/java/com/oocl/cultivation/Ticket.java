@@ -9,6 +9,10 @@ public class Ticket {
         this.carId = carId;
     }
 
+    public Ticket(CreateTicket createTicket){
+        this.id=createTicket.generate();
+    }
+
     public String getCarId() {
         return carId;
     }

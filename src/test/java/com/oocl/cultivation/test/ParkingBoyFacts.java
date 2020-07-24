@@ -5,6 +5,9 @@ import com.oocl.cultivation.Ticket;
 import com.oocl.cultivation.ParkingBoy;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
@@ -30,5 +33,22 @@ class ParkingBoyFacts {
         assertEquals("1234", car.getCarId());
     }
 
+    @Test
+    void should_return_2_ticket_when_parking_given_2_car() {
+        ParkingBoy parkingBoy = new ParkingBoy();
+        List<Car> carList = new ArrayList<>();
+        carList.add(new Car("1234"));
+        carList.add(new Car("5678"));
 
+        List<Ticket> ticketList = parkingBoy.giveMultiTicket(carList);
+        StringBuilder result = new StringBuilder();
+        if (ticketList != null) {
+            for (Ticket ticket : ticketList) {
+                result.append(String.format("%s,", ticket.getCarId()));
+            }
+        }
+
+
+        assertEquals("1234,5678", result.toString());
+    }
 }
