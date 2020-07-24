@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParkingLogFacts {
     @Test
-    void should_return_cant_get_car_when_fetching_car_given_ticket_5678_to_get_car_1_but_give_5678() {
+    void should_return_cant_get_car_when_fetching_car_given_expect_ticket_1234_to_get_car_1_but_give_5678() {
         ParkingLot parkingLot = new ParkingLot();
         HashSet<Ticket> ticketHashSet = new HashSet<>();
         ticketHashSet.add(new Ticket("1234", "C001"));
