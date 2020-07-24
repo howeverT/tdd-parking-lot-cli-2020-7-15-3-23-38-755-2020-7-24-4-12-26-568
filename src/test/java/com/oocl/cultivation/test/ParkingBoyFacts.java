@@ -19,7 +19,7 @@ class ParkingBoyFacts {
         Ticket ticket = parkingBoy.giveTicket(car);
 
 
-        assertEquals("1234", ticket.getCarId());
+        assertEquals("1234", ticket.getId());
     }
 
     @Test
