@@ -13,7 +13,7 @@ public class ParkingLot {
 
     public String isRightTicket(Ticket ticket){
         if (!tickets.contains(ticket))
-            return "wrong ticket.";
+            return "can't get car.";
         return null;
     }
 }
