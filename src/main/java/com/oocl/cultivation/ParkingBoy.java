@@ -12,7 +12,7 @@ public class ParkingBoy {
         return new Car(ticket.getId());
     }
 
-    public List<Ticket> giveMultiTicket(List<Car> cars){
-        return null;
-    }
+//    public List<Ticket> giveMultiTicket(List<Car> cars){
+//        return null;
+//    }
 }

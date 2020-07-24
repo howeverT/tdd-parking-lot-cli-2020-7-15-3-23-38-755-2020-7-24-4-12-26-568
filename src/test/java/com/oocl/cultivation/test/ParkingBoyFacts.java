@@ -37,18 +37,15 @@ class ParkingBoyFacts {
     void should_return_2_ticket_when_parking_given_2_car() {
         ParkingBoy parkingBoy = new ParkingBoy();
         List<Car> carList = new ArrayList<>();
-        carList.add(new Car("1234"));
-        carList.add(new Car("5678"));
+        carList.add(new Car("C001"));
+        carList.add(new Car("C002"));
 
-        List<Ticket> ticketList = parkingBoy.giveMultiTicket(carList);
-        StringBuilder result = new StringBuilder();
-        if (ticketList != null) {
-            for (Ticket ticket : ticketList) {
-                result.append(String.format("%s,", ticket.getCarId()));
-            }
-        }
+        Ticket ticket1 = parkingBoy.giveTicket(carList.get(0));
+        Ticket ticket2 = parkingBoy.giveTicket(carList.get(1));
 
 
-        assertEquals("1234,5678", result.toString());
+
+        assertEquals("1234",ticket1.getId());
+        assertEquals("5678",ticket2.getId());
     }
 }
