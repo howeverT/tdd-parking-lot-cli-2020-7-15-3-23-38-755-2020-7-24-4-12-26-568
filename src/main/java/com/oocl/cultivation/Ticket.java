@@ -2,6 +2,8 @@ package com.oocl.cultivation;
 
 public class Ticket {
     private String id;
+    private String carId;
+
 
     public Ticket(String id) {
         this.id = id;

@@ -18,4 +18,15 @@ class ParkingBoyFacts {
 
         assertEquals("1234",ticket.getId());
     }
+
+    @Test
+    void should_return_car_when_fetching_car_given_a_ticket() {
+        ParkingBoy parkingBoy=new ParkingBoy();
+        String ticketNum="1234";
+        Ticket ticket=new Ticket(ticketNum);
+
+        Car car=parkingBoy.giveCar(ticket);
+
+        assertEquals("1234",car.getCarId());
+    }
 }
