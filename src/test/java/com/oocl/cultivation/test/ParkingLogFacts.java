@@ -1,6 +1,7 @@
 package com.oocl.cultivation.test;
 
 
+import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.Ticket;
@@ -40,5 +41,22 @@ public class ParkingLogFacts {
         assertEquals("can't get car.", isRight);
     }
 
+    @Test
+    void should_return_cant_get_car_when_fetching_car_given_used_ticket_1234_to_get_car_C001() {
+        ParkingLot parkingLot = new ParkingLot();
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        ticketHashSet.add(new Ticket("1234", "C001"));
+        ticketHashSet.add(new Ticket("5678", "C002"));
+        Ticket usedTicket = new Ticket("1234", "C001");
+        parkingLot.setTickets(ticketHashSet);
+
+        parkingLot.isRightTicket(usedTicket);
+        String result = parkingLot.isRightTicket(usedTicket);
+
+
+        assertEquals("can't get car.", result);
+
+
+    }
 
 }
