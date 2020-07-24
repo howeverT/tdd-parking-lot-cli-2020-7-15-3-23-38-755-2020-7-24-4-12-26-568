@@ -9,8 +9,9 @@ public class Ticket {
         this.id = id;
     }
 
-    public Ticket(CreateTicket createTicket){
-        this.id=createTicket.generate();
+    public Ticket(String id, String carId) {
+        this.id = id;
+        this.carId = carId;
     }
 
     public String getCarId() {
