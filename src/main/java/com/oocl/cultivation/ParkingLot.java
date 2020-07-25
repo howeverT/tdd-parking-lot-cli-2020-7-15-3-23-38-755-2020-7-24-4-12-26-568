@@ -11,6 +11,10 @@ public class ParkingLot {
 
     }
 
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
     public ParkingLot(Set<Ticket> tickets) {
         this.tickets = tickets;
     }
@@ -24,12 +28,6 @@ public class ParkingLot {
             return "can't get car.";
         tickets.remove(ticket);
         return new ParkingBoy().giveCar(ticket).getCarId();
-    }
-
-    public String queryTicket(Ticket ticket){
-        if (!tickets.contains(ticket))
-            return "Unrecognized parking ticket.";
-        return "is right ticket";
     }
 
     public boolean canPark(Car car) {

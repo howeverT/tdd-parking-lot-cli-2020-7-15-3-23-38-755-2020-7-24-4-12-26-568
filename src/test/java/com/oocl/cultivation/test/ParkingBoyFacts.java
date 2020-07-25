@@ -1,13 +1,11 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.Ticket;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.TicketGenerator;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -79,14 +77,21 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_no_ticket_when_parking_car_given_car_null() {
-        String generateTicket="1234";
+    void should_return_cant_get_car_when_fetching_car_given_fake_ticket_3456_to_get_car_C001() {
+        ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy();
-        TicketGenerator generator = Mockito.mock(TicketGenerator.class);
-        when(generator.generate()).thenReturn(generateTicket);
-        Car car = null;
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        ticketHashSet.add(new Ticket("1234", "C001"));
+        ticketHashSet.add(new Ticket("5678", "C002"));
+        Ticket fakeTicket = new Ticket("3456", "C002");
+        parkingLot.setTickets(ticketHashSet);
 
-        Ticket ticket = parkingBoy.giveTicket(car,generator);
+        String result = parkingBoy.queryTicket(fakeTicket,parkingLot);
+
+
+        assertEquals("Unrecognized parking ticket.", result);
+
+    }
 
 
         assertNull(ticket);

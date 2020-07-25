@@ -16,4 +16,10 @@ public class ParkingBoy {
         return new Car(ticket.getCarId());
     }
 
+    public String queryTicket(Ticket ticket,ParkingLot parkingLot){
+        if (!parkingLot.getTickets().contains(ticket))
+            return "Unrecognized parking ticket.";
+        return "is right ticket";
+    }
+
 }
