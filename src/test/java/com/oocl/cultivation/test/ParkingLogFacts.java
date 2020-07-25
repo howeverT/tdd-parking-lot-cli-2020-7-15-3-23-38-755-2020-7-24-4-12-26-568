@@ -75,4 +75,24 @@ public class ParkingLogFacts {
         assertEquals("2345", ticket.getId());
 
     }
+
+    @Test
+    void should_return_no_place_to_park_when_parking_car_given_park_lot_remain_place_0() {
+        String generateTicket="3456";
+        ParkingLot parkingLot = new ParkingLot();
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        parkingLot.setTickets(ticketHashSet);
+        Car parkCar=new Car("C004");
+        Ticket ticket=new Ticket(parkCar.getCarId());
+        TicketGenerator generator = Mockito.mock(TicketGenerator.class);
+        when(generator.generate()).thenReturn(generateTicket);
+
+        String result;
+        if (parkingLot.canPark(parkCar))
+            result=new ParkingBoy().giveTicket(parkCar,generator).getId();
+        else
+            result="no place to park car";
+
+        assertEquals("no place to park car", result);
+    }
 }
