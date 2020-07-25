@@ -33,8 +33,10 @@ public class ParkingBoy {
 
     public void selectPark(List<ParkingLot> parkingLotList, Ticket ticket) {
         for (ParkingLot parkingLot : parkingLotList) {
-            if (parkingLot.getTickets().size()<10)
+            if (parkingLot.getTickets().size() < 10) {
                 parkingLot.getTickets().add(ticket);
+                break;
+            }
         }
 
     }
