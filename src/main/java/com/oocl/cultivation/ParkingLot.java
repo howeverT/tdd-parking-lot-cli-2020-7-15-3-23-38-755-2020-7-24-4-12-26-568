@@ -31,6 +31,13 @@ public class ParkingLot {
     }
 
     public boolean isInPark(Car car){
+        if (tickets.size()>0){
+            for (Ticket ticket : tickets) {
+                if (ticket.getCarId().equals(car.getCarId()))
+                    return true;
+            }
+        }
+
         return false;
     }
 
