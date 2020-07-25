@@ -26,6 +26,11 @@ public class ParkingLot {
         return new ParkingBoy().giveCar(ticket).getCarId();
     }
 
+    public String queryTicket(Ticket ticket){
+
+        return "is right ticket";
+    }
+
     public boolean canPark(Car car) {
         return tickets.size() < 10;
     }

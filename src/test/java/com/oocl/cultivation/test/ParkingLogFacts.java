@@ -129,4 +129,19 @@ public class ParkingLogFacts {
         assertEquals("the car is in the park lot", result);
     }
 
+    @Test
+    void should_return_cant_get_car_when_fetching_car_given_fake_ticket_4567_to_get_car_C001() {
+        ParkingLot parkingLot = new ParkingLot();
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        ticketHashSet.add(new Ticket("1234", "C001"));
+        ticketHashSet.add(new Ticket("5678", "C002"));
+        Ticket fakeTicket = new Ticket("3456", "C002");
+        parkingLot.setTickets(ticketHashSet);
+
+        String result = parkingLot.queryTicket(fakeTicket);
+
+
+        assertEquals("Unrecognized parking ticket.", result);
+
+    }
 }
