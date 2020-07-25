@@ -17,7 +17,7 @@ public class ParkingBoy {
         return new Car(ticket.getCarId());
     }
 
-    public String queryTicket(Ticket ticket,List<ParkingLot> parkingLots) {
+    public String queryTicket(Ticket ticket, List<ParkingLot> parkingLots) {
         if (ticket == null)
             return "Please provide your parking ticket.";
         for (ParkingLot lot : parkingLots) {
@@ -28,9 +28,11 @@ public class ParkingBoy {
         return "is right ticket";
     }
 
-    public String checkPosition(ParkingLot parkingLot) {
-        if (parkingLot.getTickets().size() >= 10)
-            return "Not enough position.";
+    public String checkPosition(List<ParkingLot> parkingLots) {
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.getTickets().size() >= 10)
+                return "Not enough position.";
+        }
         return null;
 
     }

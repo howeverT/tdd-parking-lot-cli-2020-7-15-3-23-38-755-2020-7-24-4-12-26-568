@@ -114,8 +114,10 @@ class ParkingBoyFacts {
 
     @Test
     void should_return_not_enough_position_when_parking_car_given_0_position() {
+        List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingLot parkingLot = new ParkingLot();
+        parkingLots.add(parkingLot);
         HashSet<Ticket> ticketHashSet = new HashSet<>();
         ticketHashSet.add(new Ticket("C001"));
         ticketHashSet.add(new Ticket("C002"));
@@ -129,7 +131,7 @@ class ParkingBoyFacts {
         ticketHashSet.add(new Ticket("C010"));
         parkingLot.setTickets(ticketHashSet);
 
-        String result = parkingBoy.checkPosition(parkingLot);
+        String result = parkingBoy.checkPosition(parkingLots);
 
         assertEquals("Not enough position.", result);
 
