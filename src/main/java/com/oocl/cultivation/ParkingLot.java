@@ -27,7 +27,8 @@ public class ParkingLot {
     }
 
     public String queryTicket(Ticket ticket){
-
+        if (!tickets.contains(ticket))
+            return "Unrecognized parking ticket.";
         return "is right ticket";
     }
 
