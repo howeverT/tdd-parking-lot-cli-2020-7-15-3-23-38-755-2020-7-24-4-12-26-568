@@ -92,5 +92,19 @@ class ParkingBoyFacts {
 
     }
 
+    @Test
+    void should_return_please_provide_your_parking_ticket_when_fetching_car_given_null_ticket() {
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        ticketHashSet.add(new Ticket("1234", "C001"));
+        ticketHashSet.add(new Ticket("5678", "C002"));
+        Ticket nullTicket = null;
+        parkingLot.setTickets(ticketHashSet);
 
+        String result = parkingBoy.queryTicket(nullTicket, parkingLot);
+
+
+        assertEquals("Please provide your parking ticket.", result);
+    }
 }
