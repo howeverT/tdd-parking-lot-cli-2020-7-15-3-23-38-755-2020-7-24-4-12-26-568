@@ -77,7 +77,9 @@ class ParkingBoyFacts {
 
     @Test
     void should_return_Unrecognized_parking_ticket_when_fetching_car_given_fake_ticket_3456_to_get_car_C001() {
+        List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
+        parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy();
         HashSet<Ticket> ticketHashSet = new HashSet<>();
         ticketHashSet.add(new Ticket("1234", "C001"));
@@ -85,7 +87,7 @@ class ParkingBoyFacts {
         Ticket fakeTicket = new Ticket("3456", "C002");
         parkingLot.setTickets(ticketHashSet);
 
-        String result = parkingBoy.queryTicket(fakeTicket, parkingLot);
+        String result = parkingBoy.queryTicket(fakeTicket, parkingLots);
 
 
         assertEquals("Unrecognized parking ticket.", result);
@@ -94,7 +96,9 @@ class ParkingBoyFacts {
 
     @Test
     void should_return_please_provide_your_parking_ticket_when_fetching_car_given_null_ticket() {
+        List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = new ParkingLot();
+        parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy();
         HashSet<Ticket> ticketHashSet = new HashSet<>();
         ticketHashSet.add(new Ticket("1234", "C001"));
@@ -102,7 +106,7 @@ class ParkingBoyFacts {
         Ticket nullTicket = null;
         parkingLot.setTickets(ticketHashSet);
 
-        String result = parkingBoy.queryTicket(nullTicket, parkingLot);
+        String result = parkingBoy.queryTicket(nullTicket, parkingLots);
 
 
         assertEquals("Please provide your parking ticket.", result);

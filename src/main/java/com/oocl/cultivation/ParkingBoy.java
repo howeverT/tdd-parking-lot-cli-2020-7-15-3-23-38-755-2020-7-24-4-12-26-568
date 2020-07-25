@@ -1,5 +1,6 @@
 package com.oocl.cultivation;
 
+
 import java.util.List;
 
 public class ParkingBoy {
@@ -16,11 +17,14 @@ public class ParkingBoy {
         return new Car(ticket.getCarId());
     }
 
-    public String queryTicket(Ticket ticket, ParkingLot parkingLot) {
+    public String queryTicket(Ticket ticket,List<ParkingLot> parkingLots) {
         if (ticket == null)
             return "Please provide your parking ticket.";
-        if (!parkingLot.getTickets().contains(ticket))
-            return "Unrecognized parking ticket.";
+        for (ParkingLot lot : parkingLots) {
+            if (!lot.getTickets().contains(ticket))
+                return "Unrecognized parking ticket.";
+        }
+
         return "is right ticket";
     }
 
