@@ -17,6 +17,8 @@ public class ParkingBoy {
     }
 
     public String queryTicket(Ticket ticket,ParkingLot parkingLot){
+        if (ticket==null)
+            return "Please provide your parking ticket.";
         if (!parkingLot.getTickets().contains(ticket))
             return "Unrecognized parking ticket.";
         return "is right ticket";
