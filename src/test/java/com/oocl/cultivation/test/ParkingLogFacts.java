@@ -106,7 +106,7 @@ public class ParkingLogFacts {
     }
 
     @Test
-    void should_return_car_int_the_park_lot_when_parking_car__C001_given_car_C001() {
+    void should_return_car_in_the_park_lot_when_parking_car__C001_given_car_C001() {
         String generateTicket="4567";
         ParkingLot parkingLot = new ParkingLot();
         ticketSet.add(new Ticket("C001"));
@@ -129,5 +129,5 @@ public class ParkingLogFacts {
         assertEquals("the car is in the park lot", result);
     }
 
-    
+
 }
