@@ -25,9 +25,14 @@ public class ParkingBoy {
     }
 
     public String checkPosition(ParkingLot parkingLot) {
-        if (parkingLot.getTickets().size()>=10)
+        if (parkingLot.getTickets().size() >= 10)
             return "Not enough position.";
         return null;
+
+    }
+
+    public ParkingLot selectPark(List<ParkingLot> parkingLotList) {
+        return new ParkingLot();
 
     }
 

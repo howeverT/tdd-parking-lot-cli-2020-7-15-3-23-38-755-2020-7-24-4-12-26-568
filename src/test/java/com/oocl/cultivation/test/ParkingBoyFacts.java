@@ -125,9 +125,23 @@ class ParkingBoyFacts {
         ticketHashSet.add(new Ticket("C010"));
         parkingLot.setTickets(ticketHashSet);
 
-        String result=parkingBoy.checkPosition(parkingLot);
+        String result = parkingBoy.checkPosition(parkingLot);
 
         assertEquals("Not enough position.", result);
+
+    }
+
+    @Test
+    void should_return_1_car_in_the_park_lot_2_when_parking_car_given_11_car() {
+        ParkingBoy parkingBoy = new ParkingBoy();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+        parkingLots.add(new ParkingLot());
+
+        ParkingLot parkingLot = parkingBoy.selectPark(parkingLots);
+
+        assertEquals(1, parkingLot.getTickets().size());
+
 
     }
 }
