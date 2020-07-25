@@ -14,13 +14,13 @@ import static org.mockito.Mockito.when;
 class ParkingBoyFacts {
     @Test
     void should_return_ticket_when_parking_given_a_car() {
-        String generateTicket="1234";
+        String generateTicket = "1234";
         ParkingBoy parkingBoy = new ParkingBoy();
         TicketGenerator generator = Mockito.mock(TicketGenerator.class);
         when(generator.generate()).thenReturn(generateTicket);
         Car car = new Car("C001");
 
-        Ticket ticket = parkingBoy.giveTicket(car,generator);
+        Ticket ticket = parkingBoy.giveTicket(car, generator);
 
 
         assertEquals("1234", ticket.getId());
@@ -40,8 +40,8 @@ class ParkingBoyFacts {
 
     @Test
     void should_return_2_ticket_when_parking_given_2_car() {
-        String generateTicketOne="1234";
-        String generateTicketTwo="5678";
+        String generateTicketOne = "1234";
+        String generateTicketTwo = "5678";
         ParkingBoy parkingBoy = new ParkingBoy();
 
         TicketGenerator generatorOne = Mockito.mock(TicketGenerator.class);
@@ -53,8 +53,8 @@ class ParkingBoyFacts {
         carList.add(new Car("C001"));
         carList.add(new Car("C002"));
 
-        Ticket ticket1 = parkingBoy.giveTicket(carList.get(0),generatorOne);
-        Ticket ticket2 = parkingBoy.giveTicket(carList.get(1),generatorTwo);
+        Ticket ticket1 = parkingBoy.giveTicket(carList.get(0), generatorOne);
+        Ticket ticket2 = parkingBoy.giveTicket(carList.get(1), generatorTwo);
 
 
         assertEquals("1234", ticket1.getId());
@@ -76,7 +76,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_cant_get_car_when_fetching_car_given_fake_ticket_3456_to_get_car_C001() {
+    void should_return_Unrecognized_parking_ticket_when_fetching_car_given_fake_ticket_3456_to_get_car_C001() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy();
         HashSet<Ticket> ticketHashSet = new HashSet<>();
@@ -85,11 +85,12 @@ class ParkingBoyFacts {
         Ticket fakeTicket = new Ticket("3456", "C002");
         parkingLot.setTickets(ticketHashSet);
 
-        String result = parkingBoy.queryTicket(fakeTicket,parkingLot);
+        String result = parkingBoy.queryTicket(fakeTicket, parkingLot);
 
 
         assertEquals("Unrecognized parking ticket.", result);
 
     }
+
 
 }
