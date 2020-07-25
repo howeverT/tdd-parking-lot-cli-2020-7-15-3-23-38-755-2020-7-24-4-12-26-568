@@ -145,10 +145,11 @@ class ParkingBoyFacts {
         parkingLots.add(new ParkingLot());
 
 
-        parkingBoy.selectPark(parkingLots, new Ticket("C001"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C002"));
+        String resultOne = parkingBoy.selectPark(parkingLots, new Ticket("C001"));
+        String resultTwo = parkingBoy.selectPark(parkingLots, new Ticket("C002"));
 
-        assertEquals(2, parkingLots.get(0).getTickets().size());
+        assertEquals("Car C001 park in parking lot 1", resultOne);
+        assertEquals("Car C002 park in parking lot 1", resultTwo);
 
 
     }

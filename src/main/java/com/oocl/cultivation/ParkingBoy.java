@@ -37,13 +37,16 @@ public class ParkingBoy {
 
     }
 
-    public void selectPark(List<ParkingLot> parkingLotList, Ticket ticket) {
-        for (ParkingLot parkingLot : parkingLotList) {
+    public String selectPark(List<ParkingLot> parkingLotList, Ticket ticket) {
+        for (int parkIndex = 0; parkIndex < parkingLotList.size(); parkIndex++) {
+            ParkingLot parkingLot = parkingLotList.get(parkIndex);
             if (parkingLot.getTickets().size() < 10) {
                 parkingLot.getTickets().add(ticket);
-                break;
+                return String.format("Car %s park in parking lot %d", ticket.getCarId(), parkIndex+1);
             }
         }
+        return checkPosition(parkingLotList);
+
 
     }
 
