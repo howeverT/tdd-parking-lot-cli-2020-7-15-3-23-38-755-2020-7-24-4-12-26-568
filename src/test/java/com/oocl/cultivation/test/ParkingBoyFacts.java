@@ -14,7 +14,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_ticket_when_parking_given_a_car() {
         ParkingBoy parkingBoy = new ParkingBoy();
-        Car car = new Car();
+        Car car = new Car("C001");
 
         Ticket ticket = parkingBoy.giveTicket(car);
 

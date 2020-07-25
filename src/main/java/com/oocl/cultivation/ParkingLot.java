@@ -17,4 +17,8 @@ public class ParkingLot {
         tickets.remove(ticket);
         return new ParkingBoy().giveCar(ticket).getCarId();
     }
+
+    public boolean canPark(Car car){
+        return tickets.size()<=10;
+    }
 }

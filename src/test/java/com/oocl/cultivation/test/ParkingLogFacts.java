@@ -59,4 +59,18 @@ public class ParkingLogFacts {
 
     }
 
+    @Test
+    void should_return_ticket_when_parking_car_given_park_lot_remain_place_10() {
+        ParkingLot parkingLot = new ParkingLot();
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        parkingLot.setTickets(ticketHashSet);
+        Car parkCar=new Car("C003");
+        Ticket ticket=new Ticket(parkCar.getCarId());
+
+        if (parkingLot.canPark(parkCar))
+            ticket=new ParkingBoy().giveTicket(parkCar);
+
+        assertEquals("2345", ticket.getId());
+
+    }
 }
