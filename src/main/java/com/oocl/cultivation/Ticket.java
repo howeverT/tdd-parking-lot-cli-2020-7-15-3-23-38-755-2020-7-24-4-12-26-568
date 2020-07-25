@@ -7,8 +7,9 @@ public class Ticket {
     private String carId;
 
 
-    public Ticket(String id) {
-        this.id = id;
+    public Ticket(String carId) {
+        this.carId = carId;
+        this.id=this.generate();
     }
 
     public Ticket(String id, String carId) {
@@ -22,6 +23,10 @@ public class Ticket {
 
     public String getId() {
         return id;
+    }
+
+    public String generate(){
+        return null;
     }
 
     @Override

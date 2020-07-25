@@ -3,20 +3,26 @@ package com.oocl.cultivation.test;
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.Ticket;
 import com.oocl.cultivation.ParkingBoy;
+import com.oocl.cultivation.TicketGenerator;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 class ParkingBoyFacts {
     @Test
     void should_return_ticket_when_parking_given_a_car() {
+        String generateTicket="1234";
         ParkingBoy parkingBoy = new ParkingBoy();
+        TicketGenerator generator = Mockito.mock(TicketGenerator.class);
+        when(generator.generate()).thenReturn(generateTicket);
         Car car = new Car("C001");
 
-        Ticket ticket = parkingBoy.giveTicket(car);
+        Ticket ticket = parkingBoy.giveTicket(car,generator);
 
 
         assertEquals("1234", ticket.getId());
@@ -36,13 +42,21 @@ class ParkingBoyFacts {
 
     @Test
     void should_return_2_ticket_when_parking_given_2_car() {
+        String generateTicketOne="1234";
+        String generateTicketTwo="5678";
         ParkingBoy parkingBoy = new ParkingBoy();
+
+        TicketGenerator generatorOne = Mockito.mock(TicketGenerator.class);
+        when(generatorOne.generate()).thenReturn(generateTicketOne);
+
+        TicketGenerator generatorTwo = Mockito.mock(TicketGenerator.class);
+        when(generatorTwo.generate()).thenReturn(generateTicketTwo);
         List<Car> carList = new ArrayList<>();
         carList.add(new Car("C001"));
         carList.add(new Car("C002"));
 
-        Ticket ticket1 = parkingBoy.giveTicket(carList.get(0));
-        Ticket ticket2 = parkingBoy.giveTicket(carList.get(1));
+        Ticket ticket1 = parkingBoy.giveTicket(carList.get(0),generatorOne);
+        Ticket ticket2 = parkingBoy.giveTicket(carList.get(1),generatorTwo);
 
 
         assertEquals("1234", ticket1.getId());

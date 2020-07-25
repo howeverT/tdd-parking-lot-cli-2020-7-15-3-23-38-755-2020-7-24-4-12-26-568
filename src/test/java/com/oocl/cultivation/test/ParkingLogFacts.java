@@ -1,15 +1,14 @@
 package com.oocl.cultivation.test;
 
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.Ticket;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 public class ParkingLogFacts {
     @Test
@@ -61,14 +60,17 @@ public class ParkingLogFacts {
 
     @Test
     void should_return_ticket_when_parking_car_given_park_lot_remain_place_10() {
+        String generateTicket="2345";
         ParkingLot parkingLot = new ParkingLot();
         HashSet<Ticket> ticketHashSet = new HashSet<>();
         parkingLot.setTickets(ticketHashSet);
         Car parkCar=new Car("C003");
         Ticket ticket=new Ticket(parkCar.getCarId());
+        TicketGenerator generator = Mockito.mock(TicketGenerator.class);
+        when(generator.generate()).thenReturn(generateTicket);
 
         if (parkingLot.canPark(parkCar))
-            ticket=new ParkingBoy().giveTicket(parkCar);
+            ticket=new ParkingBoy().giveTicket(parkCar,generator);
 
         assertEquals("2345", ticket.getId());
 
