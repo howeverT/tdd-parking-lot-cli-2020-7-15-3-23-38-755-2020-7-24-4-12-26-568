@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.Mockito.when;
 
 class ParkingBoyFacts {
@@ -77,5 +78,18 @@ class ParkingBoyFacts {
 
     }
 
+    @Test
+    void should_return_no_ticket_when_parking_car_given_car_null() {
+        String generateTicket="1234";
+        ParkingBoy parkingBoy = new ParkingBoy();
+        TicketGenerator generator = Mockito.mock(TicketGenerator.class);
+        when(generator.generate()).thenReturn(generateTicket);
+        Car car = null;
 
+        Ticket ticket = parkingBoy.giveTicket(car,generator);
+
+
+        assertNull(ticket);
+
+    }
 }
