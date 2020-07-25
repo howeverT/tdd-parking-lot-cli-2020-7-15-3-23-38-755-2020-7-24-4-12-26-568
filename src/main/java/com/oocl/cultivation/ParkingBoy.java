@@ -16,12 +16,17 @@ public class ParkingBoy {
         return new Car(ticket.getCarId());
     }
 
-    public String queryTicket(Ticket ticket,ParkingLot parkingLot){
-        if (ticket==null)
+    public String queryTicket(Ticket ticket, ParkingLot parkingLot) {
+        if (ticket == null)
             return "Please provide your parking ticket.";
         if (!parkingLot.getTickets().contains(ticket))
             return "Unrecognized parking ticket.";
         return "is right ticket";
+    }
+
+    public String checkPosition(ParkingLot parkingLot) {
+        return null;
+
     }
 
 }

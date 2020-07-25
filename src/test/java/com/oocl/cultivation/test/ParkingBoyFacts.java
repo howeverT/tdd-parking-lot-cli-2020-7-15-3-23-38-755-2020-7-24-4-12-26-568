@@ -107,4 +107,27 @@ class ParkingBoyFacts {
 
         assertEquals("Please provide your parking ticket.", result);
     }
+
+    @Test
+    void should_return_not_enough_position_when_parking_car_given_0_position() {
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        ticketHashSet.add(new Ticket("C001"));
+        ticketHashSet.add(new Ticket("C002"));
+        ticketHashSet.add(new Ticket("C003"));
+        ticketHashSet.add(new Ticket("C011"));
+        ticketHashSet.add(new Ticket("C005"));
+        ticketHashSet.add(new Ticket("C006"));
+        ticketHashSet.add(new Ticket("C007"));
+        ticketHashSet.add(new Ticket("C008"));
+        ticketHashSet.add(new Ticket("C009"));
+        ticketHashSet.add(new Ticket("C010"));
+        parkingLot.setTickets(ticketHashSet);
+
+        String result=parkingBoy.checkPosition(parkingLot);
+
+        assertEquals("Not enough position.", result);
+
+    }
 }
