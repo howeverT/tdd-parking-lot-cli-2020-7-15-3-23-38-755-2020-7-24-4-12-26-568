@@ -29,4 +29,9 @@ public class ParkingLot {
     public boolean canPark(Car car) {
         return tickets.size() < 10;
     }
+
+    public boolean isInPark(Car car){
+        return false;
+    }
+
 }
