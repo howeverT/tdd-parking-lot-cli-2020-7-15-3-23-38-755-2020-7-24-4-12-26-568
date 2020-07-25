@@ -31,8 +31,11 @@ public class ParkingBoy {
 
     }
 
-    public ParkingLot selectPark(List<ParkingLot> parkingLotList, Ticket ticket) {
-        return new ParkingLot();
+    public void selectPark(List<ParkingLot> parkingLotList, Ticket ticket) {
+        for (ParkingLot parkingLot : parkingLotList) {
+            if (parkingLot.getTickets().size()<10)
+                parkingLot.getTickets().add(ticket);
+        }
 
     }
 

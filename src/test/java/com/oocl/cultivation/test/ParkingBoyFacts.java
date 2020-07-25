@@ -142,7 +142,7 @@ class ParkingBoyFacts {
         parkingBoy.selectPark(parkingLots,new Ticket("C001"));
         parkingBoy.selectPark(parkingLots,new Ticket("C002"));
 
-        assertEquals(1, parkingLots.get(0).getTickets().size());
+        assertEquals(2, parkingLots.get(0).getTickets().size());
 
 
     }
