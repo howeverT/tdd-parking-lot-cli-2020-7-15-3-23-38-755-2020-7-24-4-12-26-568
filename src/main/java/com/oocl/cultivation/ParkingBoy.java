@@ -31,7 +31,7 @@ public class ParkingBoy {
 
     }
 
-    public ParkingLot selectPark(List<ParkingLot> parkingLotList) {
+    public ParkingLot selectPark(List<ParkingLot> parkingLotList, Ticket ticket) {
         return new ParkingLot();
 
     }

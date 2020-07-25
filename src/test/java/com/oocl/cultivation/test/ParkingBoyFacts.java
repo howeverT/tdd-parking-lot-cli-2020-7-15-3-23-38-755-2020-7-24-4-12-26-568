@@ -132,15 +132,17 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_1_car_in_the_park_lot_2_when_parking_car_given_11_car() {
+    void should_return_2_car_in_the_park_lot_1_when_parking_car_given_2_car() {
         ParkingBoy parkingBoy = new ParkingBoy();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
         parkingLots.add(new ParkingLot());
 
-        ParkingLot parkingLot = parkingBoy.selectPark(parkingLots);
 
-        assertEquals(1, parkingLot.getTickets().size());
+        parkingBoy.selectPark(parkingLots,new Ticket("C001"));
+        parkingBoy.selectPark(parkingLots,new Ticket("C002"));
+
+        assertEquals(1, parkingLots.get(0).getTickets().size());
 
 
     }
