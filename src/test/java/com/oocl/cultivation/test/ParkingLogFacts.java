@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class ParkingLogFacts {
+    HashSet<Ticket> ticketSet = new HashSet<>();
     @Test
     void should_return_cant_get_car_when_fetching_car_given_expect_ticket_1234_to_get_car_1_but_give_5678() {
         ParkingLot parkingLot = new ParkingLot();
@@ -80,8 +81,17 @@ public class ParkingLogFacts {
     void should_return_no_place_to_park_when_parking_car_given_park_lot_remain_place_0() {
         String generateTicket="3456";
         ParkingLot parkingLot = new ParkingLot();
-        HashSet<Ticket> ticketHashSet = new HashSet<>();
-        parkingLot.setTickets(ticketHashSet);
+        ticketSet.add(new Ticket("C001"));
+        ticketSet.add(new Ticket("C002"));
+        ticketSet.add(new Ticket("C003"));
+        ticketSet.add(new Ticket("C011"));
+        ticketSet.add(new Ticket("C005"));
+        ticketSet.add(new Ticket("C006"));
+        ticketSet.add(new Ticket("C007"));
+        ticketSet.add(new Ticket("C008"));
+        ticketSet.add(new Ticket("C009"));
+        ticketSet.add(new Ticket("C010"));
+        parkingLot.setTickets(ticketSet);
         Car parkCar=new Car("C004");
         Ticket ticket=new Ticket(parkCar.getCarId());
         TicketGenerator generator = Mockito.mock(TicketGenerator.class);
