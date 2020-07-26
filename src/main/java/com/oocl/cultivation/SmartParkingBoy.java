@@ -23,9 +23,5 @@ public class SmartParkingBoy extends ParkingBoy {
         return String.format("Car %s park in parking lot %d", ticket.getCarId(), morePlace + 1);
     }
 
-    public String parkCar(List<ParkingLot> parkingLotList, Car car) {
-        if (checkPosition(parkingLotList).equals("Enough position."))
-            return selectPark(parkingLotList, giveTicket(car));
-        return checkPosition(parkingLotList);
-    }
+
 }
