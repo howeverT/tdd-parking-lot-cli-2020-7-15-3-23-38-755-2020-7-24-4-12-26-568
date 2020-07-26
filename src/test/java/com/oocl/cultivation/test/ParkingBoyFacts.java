@@ -58,6 +58,8 @@ class ParkingBoyFacts {
         Ticket ticket1 = parkingBoy.giveTicket(carList.get(0));
         assertEquals("1234", ticket1.getId());
 
+        parkingBoy.setTicketGenerator(generatorTwo);
+
         Ticket ticket2 = parkingBoy.giveTicket(carList.get(1));
         assertEquals("5678", ticket2.getId());
     }
@@ -88,7 +90,7 @@ class ParkingBoyFacts {
         Ticket fakeTicket = new Ticket("3456", "C002");
         parkingLot.setTickets(ticketHashSet);
 
-        String result = parkingBoy.queryTicket(fakeTicket, parkingLots);
+        String result = parkingBoy.queryTicket(fakeTicket, parkingLot);
 
 
         assertEquals("Unrecognized parking ticket.", result);
@@ -107,7 +109,7 @@ class ParkingBoyFacts {
         Ticket nullTicket = null;
         parkingLot.setTickets(ticketHashSet);
 
-        String result = parkingBoy.queryTicket(nullTicket, parkingLots);
+        String result = parkingBoy.queryTicket(nullTicket, parkingLot);
 
 
         assertEquals("Please provide your parking ticket.", result);

@@ -23,13 +23,11 @@ public class ParkingBoy {
         return new Car(ticket.getCarId());
     }
 
-    public String queryTicket(Ticket ticket, List<ParkingLot> parkingLots) {
+    public String queryTicket(Ticket ticket, ParkingLot parkingLot) {
         if (ticket == null)
             return "Please provide your parking ticket.";
-        for (ParkingLot lot : parkingLots) {
-            if (!lot.getTickets().contains(ticket))
+            if (!parkingLot.getTickets().contains(ticket))
                 return "Unrecognized parking ticket.";
-        }
 
         return "is right ticket";
     }
@@ -53,6 +51,17 @@ public class ParkingBoy {
         }
         return checkPosition(parkingLotList);
 
+
+    }
+
+    public Car fetchCar(Ticket ticket, List<ParkingLot> parkingLots) {
+        Car fetchCar = new Car(ticket.getCarId());
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.isInPark(fetchCar))
+                if (queryTicket(ticket, parkingLot).equals("is right ticket"))
+                    return giveCar(ticket);
+        }
+        return null;
 
     }
 
