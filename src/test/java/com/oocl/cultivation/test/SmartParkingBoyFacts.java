@@ -61,4 +61,18 @@ public class SmartParkingBoyFacts {
 
         assertEquals("Not enough position.", result);
     }
+
+    @Test
+    void should_return_correct_car_when_fetching_car_given_a_ticket() {
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        Ticket ticket = new Ticket("1234", "C001");
+        parkingLots.add(new ParkingLot());
+
+        Car fetchCar = smartParkingBoy.fetchCar(ticket, parkingLots);
+
+        assertEquals("C001", fetchCar.getCarId());
+
+
+    }
 }
