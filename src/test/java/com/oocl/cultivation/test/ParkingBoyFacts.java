@@ -138,7 +138,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_park_in_the_park_lot_1_when_parking_car_given_2_car() {
+    void should_return_2_car_in_the_park_lot_1_when_parking_car_given_2_car() {
         ParkingBoy parkingBoy = new ParkingBoy();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
