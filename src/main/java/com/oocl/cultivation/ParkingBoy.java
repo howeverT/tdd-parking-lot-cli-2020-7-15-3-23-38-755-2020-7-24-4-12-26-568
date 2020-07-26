@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ParkingBoy {
 
-    TicketGenerator ticketGenerator;
+    TicketGenerator ticketGenerator = new TicketGenerator();
 
     public void setTicketGenerator(TicketGenerator ticketGenerator) {
         this.ticketGenerator = ticketGenerator;
@@ -48,7 +48,7 @@ public class ParkingBoy {
             ParkingLot parkingLot = parkingLotList.get(parkIndex);
             if (parkingLot.getTickets().size() < 10) {
                 parkingLot.getTickets().add(ticket);
-                return String.format("Car %s park in parking lot %d", ticket.getCarId(), parkIndex+1);
+                return String.format("Car %s park in parking lot %d", ticket.getCarId(), parkIndex + 1);
             }
         }
         return checkPosition(parkingLotList);

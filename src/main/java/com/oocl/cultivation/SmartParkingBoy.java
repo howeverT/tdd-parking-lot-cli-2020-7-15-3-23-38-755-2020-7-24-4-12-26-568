@@ -16,10 +16,16 @@ public class SmartParkingBoy extends ParkingBoy {
             if (placeOfLot[selectIndex + 1] < 10 && placeOfLot[selectIndex] < 10 && placeOfLot[selectIndex] > placeOfLot[selectIndex + 1])
                 morePlace = selectIndex + 1;
         }
-        if (morePlace!=-1)
+        if (morePlace != -1)
             parkingLotList.get(morePlace).getTickets().add(ticket);
         else
             return checkPosition(parkingLotList);
-        return String.format("Car %s park in parking lot %d", ticket.getCarId(), morePlace+1);
+        return String.format("Car %s park in parking lot %d", ticket.getCarId(), morePlace + 1);
+    }
+
+    public String parkCar(List<ParkingLot> parkingLotList, Car car) {
+        if (checkPosition(parkingLotList).equals("Enough position."))
+            return selectPark(parkingLotList, giveTicket(car));
+        return null;
     }
 }

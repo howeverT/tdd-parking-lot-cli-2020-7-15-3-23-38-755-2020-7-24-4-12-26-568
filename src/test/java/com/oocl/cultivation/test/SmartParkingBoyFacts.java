@@ -1,5 +1,6 @@
 package com.oocl.cultivation.test;
 
+import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingLot;
 import com.oocl.cultivation.SmartParkingBoy;
 import com.oocl.cultivation.Ticket;
@@ -38,5 +39,26 @@ public class SmartParkingBoyFacts {
         String result = smartParkingBoy.selectPark(parkingLots, new Ticket("C003"));
 
         assertEquals("Car C003 park in parking lot 1", result);
+    }
+
+    @Test
+    void should_return_not_enough_position_when_parking_car_given_0_position() {
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        parkingLots.add(new ParkingLot());
+
+        smartParkingBoy.parkCar(parkingLots, new Car("C001"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C002"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C003"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C004"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C005"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C006"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C007"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C008"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C009"));
+        smartParkingBoy.parkCar(parkingLots, new Car("C010"));
+        String result = smartParkingBoy.parkCar(parkingLots, new Car("C011"));
+
+        assertEquals("not enough position.", result);
     }
 }
