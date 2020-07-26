@@ -19,8 +19,9 @@ class ParkingBoyFacts {
         TicketGenerator generator = Mockito.mock(TicketGenerator.class);
         when(generator.generate()).thenReturn(generateTicket);
         Car car = new Car("C001");
+        parkingBoy.setTicketGenerator(generator);
 
-        Ticket ticket = parkingBoy.giveTicket(car, generator);
+        Ticket ticket = parkingBoy.giveTicket(car);
 
 
         assertEquals("1234", ticket.getId());
@@ -52,12 +53,12 @@ class ParkingBoyFacts {
         List<Car> carList = new ArrayList<>();
         carList.add(new Car("C001"));
         carList.add(new Car("C002"));
+        parkingBoy.setTicketGenerator(generatorOne);
 
-        Ticket ticket1 = parkingBoy.giveTicket(carList.get(0), generatorOne);
-        Ticket ticket2 = parkingBoy.giveTicket(carList.get(1), generatorTwo);
-
-
+        Ticket ticket1 = parkingBoy.giveTicket(carList.get(0));
         assertEquals("1234", ticket1.getId());
+
+        Ticket ticket2 = parkingBoy.giveTicket(carList.get(1));
         assertEquals("5678", ticket2.getId());
     }
 

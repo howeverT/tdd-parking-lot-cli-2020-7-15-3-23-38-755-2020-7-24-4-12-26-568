@@ -5,7 +5,13 @@ import java.util.List;
 
 public class ParkingBoy {
 
-    public Ticket giveTicket(Car car, TicketGenerator ticketGenerator) {
+    TicketGenerator ticketGenerator;
+
+    public void setTicketGenerator(TicketGenerator ticketGenerator) {
+        this.ticketGenerator = ticketGenerator;
+    }
+
+    public Ticket giveTicket(Car car) {
         if (car.getCarId() != null) {
             return new Ticket(ticketGenerator.generate(), car.getCarId());
         }
@@ -33,7 +39,7 @@ public class ParkingBoy {
             if (parkingLot.getTickets().size() >= 10)
                 return "Not enough position.";
         }
-        return null;
+        return "Enough position.";
 
     }
 
