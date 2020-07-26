@@ -26,15 +26,16 @@ public class ParkingBoy {
     public String queryTicket(Ticket ticket, ParkingLot parkingLot) {
         if (ticket == null)
             return "Please provide your parking ticket.";
-            if (!parkingLot.getTickets().contains(ticket))
-                return "Unrecognized parking ticket.";
+        if (!parkingLot.getTickets().contains(ticket))
+            return "Unrecognized parking ticket.";
 
         return "is right ticket";
     }
 
     public String checkPosition(List<ParkingLot> parkingLots) {
-        for (ParkingLot parkingLot : parkingLots) {
-            if (parkingLot.getTickets().size() >= 10)
+        for (int lotIndex = 0; lotIndex < parkingLots.size(); lotIndex++) {
+            ParkingLot parkingLot = parkingLots.get(lotIndex);
+            if (parkingLot.getTickets().size() >= 10 && lotIndex == parkingLots.size() - 1)
                 return "Not enough position.";
         }
         return "Enough position.";
