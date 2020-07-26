@@ -7,6 +7,7 @@ import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -68,6 +69,10 @@ public class SmartParkingBoyFacts {
         List<ParkingLot> parkingLots = new ArrayList<>();
         Ticket ticket = new Ticket("1234", "C001");
         parkingLots.add(new ParkingLot());
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        ticketHashSet.add(new Ticket("1234", "C001"));
+        ticketHashSet.add(new Ticket("5678", "C002"));
+        parkingLots.get(0).setTickets(ticketHashSet);
 
         Car fetchCar = smartParkingBoy.fetchCar(ticket, parkingLots);
 
