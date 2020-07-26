@@ -26,6 +26,6 @@ public class SmartParkingBoy extends ParkingBoy {
     public String parkCar(List<ParkingLot> parkingLotList, Car car) {
         if (checkPosition(parkingLotList).equals("Enough position."))
             return selectPark(parkingLotList, giveTicket(car));
-        return null;
+        return checkPosition(parkingLotList);
     }
 }

@@ -59,6 +59,6 @@ public class SmartParkingBoyFacts {
         smartParkingBoy.parkCar(parkingLots, new Car("C010"));
         String result = smartParkingBoy.parkCar(parkingLots, new Car("C011"));
 
-        assertEquals("not enough position.", result);
+        assertEquals("Not enough position.", result);
     }
 }
