@@ -7,6 +7,7 @@ import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -67,5 +68,21 @@ public class SuperSmartParkingBoyFacts {
         String result = superSmartParkingBoy.parkCar(parkingLots, new Car("C011"));
 
         assertEquals("Car C011 park in parking lot 2", result);
+    }
+
+    @Test
+    void should_return_correct_car_when_fetching_car_given_a_ticket_and_super_smart_boy() {
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy();
+        List<ParkingLot> parkingLots = new ArrayList<>();
+        Ticket ticket = new Ticket("1234", "C001");
+        parkingLots.add(new ParkingLot());
+        HashSet<Ticket> ticketHashSet = new HashSet<>();
+        ticketHashSet.add(new Ticket("1234", "C001"));
+        ticketHashSet.add(new Ticket("5678", "C002"));
+        parkingLots.get(0).setTickets(ticketHashSet);
+
+        Car fetchCar = superSmartParkingBoy.fetchCar(ticket, parkingLots);
+
+        assertEquals("C001", fetchCar.getCarId());
     }
 }
