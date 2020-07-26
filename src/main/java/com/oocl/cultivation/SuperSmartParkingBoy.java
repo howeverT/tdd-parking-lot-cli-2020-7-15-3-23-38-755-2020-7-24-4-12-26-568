@@ -12,7 +12,7 @@ public class SuperSmartParkingBoy extends ParkingBoy {
         int placeIndex = 0;
         int morePlace = 0;
         for (ParkingLot parkingLot : parkingLotList) {
-            placeOfLot[placeIndex++] = parkingLot.getTickets().size()/10;
+            placeOfLot[placeIndex++] = parkingLot.getTickets().size() / 10;
         }
         for (int selectIndex = 0; selectIndex < placeOfLot.length - 1; selectIndex++) {
             if (placeOfLot[selectIndex + 1] < 10 && placeOfLot[selectIndex] < 10 && placeOfLot[selectIndex] > placeOfLot[selectIndex + 1])
@@ -22,6 +22,6 @@ public class SuperSmartParkingBoy extends ParkingBoy {
             parkingLotList.get(morePlace).getTickets().add(ticket);
         else
             return checkPosition(parkingLotList);
-        return String.format("Car %s park in parking lot %d", ticket.getCarId(), morePlace + 1);
+        return String.format("Car %s park in parking lot %d, Your ticket number is %s", ticket.getCarId(), morePlace + 1, ticket.getId());
     }
 }

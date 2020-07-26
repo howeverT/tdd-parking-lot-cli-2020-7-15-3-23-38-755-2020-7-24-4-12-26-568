@@ -23,8 +23,8 @@ public class SmartParkingBoyFacts {
         String resultOne = smartParkingBoy.selectPark(parkingLots, new Ticket("C001"));
         String resultTwo = smartParkingBoy.selectPark(parkingLots, new Ticket("C002"));
 
-        assertEquals("Car C001 park in parking lot 1", resultOne);
-        assertEquals("Car C002 park in parking lot 2", resultTwo);
+        assertEquals("Car C001 park in parking lot 1", resultOne.substring(0,30));
+        assertEquals("Car C002 park in parking lot 2", resultTwo.substring(0,30));
 
     }
 
@@ -39,7 +39,7 @@ public class SmartParkingBoyFacts {
         smartParkingBoy.selectPark(parkingLots, new Ticket("C002"));
         String result = smartParkingBoy.selectPark(parkingLots, new Ticket("C003"));
 
-        assertEquals("Car C003 park in parking lot 1", result);
+        assertEquals("Car C003 park in parking lot 1", result.substring(0,30));
     }
 
     @Test

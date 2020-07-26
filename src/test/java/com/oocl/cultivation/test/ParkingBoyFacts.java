@@ -151,8 +151,8 @@ class ParkingBoyFacts {
         String resultOne = parkingBoy.selectPark(parkingLots, new Ticket("C001"));
         String resultTwo = parkingBoy.selectPark(parkingLots, new Ticket("C002"));
 
-        assertEquals("Car C001 park in parking lot 1", resultOne);
-        assertEquals("Car C002 park in parking lot 1", resultTwo);
+        assertEquals("Car C001 park in parking lot 1", resultOne.substring(0,30));
+        assertEquals("Car C002 park in parking lot 1", resultTwo.substring(0,30));
 
 
     }

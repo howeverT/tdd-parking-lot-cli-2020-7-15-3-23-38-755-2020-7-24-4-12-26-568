@@ -21,7 +21,7 @@ public class SmartParkingBoy extends ParkingBoy {
                 parkingLotList.get(morePlace).getTickets().add(ticket);
             else
                 return checkPosition(parkingLotList);
-            return String.format("Car %s park in parking lot %d", ticket.getCarId(), morePlace + 1);
+            return String.format("Car %s park in parking lot %d, Your ticket number is %s", ticket.getCarId(), morePlace + 1, ticket.getId());
         } else {
             return "no park.";
         }

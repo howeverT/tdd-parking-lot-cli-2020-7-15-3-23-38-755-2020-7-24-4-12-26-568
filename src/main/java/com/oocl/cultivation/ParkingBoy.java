@@ -47,7 +47,7 @@ public class ParkingBoy {
             ParkingLot parkingLot = parkingLotList.get(parkIndex);
             if (parkingLot.getTickets().size() < 10) {
                 parkingLot.getTickets().add(ticket);
-                return String.format("Car %s park in parking lot %d", ticket.getCarId(), parkIndex + 1);
+                return String.format("Car %s park in parking lot %d, Your ticket number is %s", ticket.getCarId(), parkIndex + 1, ticket.getId());
             }
         }
         return checkPosition(parkingLotList);
