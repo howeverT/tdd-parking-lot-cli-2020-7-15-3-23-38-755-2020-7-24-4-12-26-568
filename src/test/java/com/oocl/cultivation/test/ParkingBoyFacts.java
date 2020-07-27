@@ -145,17 +145,8 @@ class ParkingBoyFacts {
         parkingLots.add(new ParkingLot());
 
 
-        parkingBoy.selectPark(parkingLots, new Ticket("C001"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C002"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C003"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C004"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C005"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C006"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C007"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C008"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C009"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C010"));
-        parkingBoy.selectPark(parkingLots, new Ticket("C011"));
+        generateUtils.getMoreParkCar(parkingBoy, parkingLots);
+        parkingBoy.parkCar(parkingLots, new Car("C011"));
 
         assertEquals(1, parkingLots.get(1).getTickets().size());
 

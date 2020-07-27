@@ -21,8 +21,8 @@ public class SuperSmartParkingBoyFacts {
         String resultOne = superSmartParkingBoy.selectPark(parkingLots, new Ticket("C001"));
         String resultTwo = superSmartParkingBoy.selectPark(parkingLots, new Ticket("C002"));
 
-        assertEquals("Car C001 park in parking lot 1", resultOne.substring(0,30));
-        assertEquals("Car C002 park in parking lot 1", resultTwo.substring(0,30));
+        assertEquals("Car C001 park in parking lot 1", resultOne.substring(0, 30));
+        assertEquals("Car C002 park in parking lot 1", resultTwo.substring(0, 30));
     }
 
     @Test
@@ -31,16 +31,7 @@ public class SuperSmartParkingBoyFacts {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
 
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C001"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C002"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C003"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C004"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C005"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C006"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C007"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C008"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C009"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C010"));
+        generateUtils.getMoreParkCar(superSmartParkingBoy, parkingLots);
 
         Throwable exception = assertThrows(RuntimeException.class, () -> superSmartParkingBoy.parkCar(parkingLots, new Car("C011")));
 
@@ -54,19 +45,10 @@ public class SuperSmartParkingBoyFacts {
         parkingLots.add(new ParkingLot());
         parkingLots.add(new ParkingLot());
 
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C001"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C002"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C003"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C004"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C005"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C006"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C007"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C008"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C009"));
-        superSmartParkingBoy.parkCar(parkingLots, new Car("C010"));
+        generateUtils.getMoreParkCar(superSmartParkingBoy, parkingLots);
         String result = superSmartParkingBoy.parkCar(parkingLots, new Car("C011"));
 
-        assertEquals("Car C011 park in parking lot 2", result.substring(0,30));
+        assertEquals("Car C011 park in parking lot 2", result.substring(0, 30));
     }
 
     @Test

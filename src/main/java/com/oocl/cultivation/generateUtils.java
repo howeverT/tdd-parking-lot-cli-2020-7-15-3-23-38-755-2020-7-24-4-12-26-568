@@ -1,6 +1,7 @@
 package com.oocl.cultivation;
 
 import java.util.HashSet;
+import java.util.List;
 
 public class generateUtils {
     public static HashSet<Ticket> getHashTickets() {
@@ -24,6 +25,19 @@ public class generateUtils {
         ticketHashSet.add(new Ticket("C009"));
         ticketHashSet.add(new Ticket("C010"));
         return ticketHashSet;
+    }
+
+    public static void getMoreParkCar(ParkingBoy parkingBoy, List<ParkingLot> parkingLots) {
+        parkingBoy.parkCar(parkingLots, new Car("C001"));
+        parkingBoy.parkCar(parkingLots, new Car("C002"));
+        parkingBoy.parkCar(parkingLots, new Car("C003"));
+        parkingBoy.parkCar(parkingLots, new Car("C004"));
+        parkingBoy.parkCar(parkingLots, new Car("C005"));
+        parkingBoy.parkCar(parkingLots, new Car("C006"));
+        parkingBoy.parkCar(parkingLots, new Car("C007"));
+        parkingBoy.parkCar(parkingLots, new Car("C008"));
+        parkingBoy.parkCar(parkingLots, new Car("C009"));
+        parkingBoy.parkCar(parkingLots, new Car("C010"));
     }
 
     public static ParkingLot getParkingLotData() {

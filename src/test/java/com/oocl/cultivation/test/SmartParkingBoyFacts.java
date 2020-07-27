@@ -46,20 +46,12 @@ public class SmartParkingBoyFacts {
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
 
-        smartParkingBoy.parkCar(parkingLots, new Car("C001"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C002"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C003"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C004"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C005"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C006"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C007"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C008"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C009"));
-        smartParkingBoy.parkCar(parkingLots, new Car("C010"));
+        generateUtils.getMoreParkCar(smartParkingBoy, parkingLots);
         Throwable exception = assertThrows(RuntimeException.class, () -> smartParkingBoy.parkCar(parkingLots, new Car("C011")));
 
         assertEquals("Not enough position.", exception.getMessage());
     }
+
 
     @Test
     void should_return_correct_car_when_fetching_car_given_a_ticket() {
