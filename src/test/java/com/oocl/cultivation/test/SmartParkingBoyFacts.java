@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SmartParkingBoyFacts {
     @Test
@@ -55,9 +56,9 @@ public class SmartParkingBoyFacts {
         smartParkingBoy.parkCar(parkingLots, new Car("C008"));
         smartParkingBoy.parkCar(parkingLots, new Car("C009"));
         smartParkingBoy.parkCar(parkingLots, new Car("C010"));
-        String result = smartParkingBoy.parkCar(parkingLots, new Car("C011"));
+        Throwable exception = assertThrows(RuntimeException.class, () -> smartParkingBoy.parkCar(parkingLots, new Car("C011")));
 
-        assertEquals("Not enough position.", result);
+        assertEquals("Not enough position.", exception.getMessage());
     }
 
     @Test

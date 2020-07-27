@@ -24,34 +24,47 @@ public class ParkingBoy {
     }
 
     public Boolean queryTicket(Ticket ticket, ParkingLot parkingLot) {
-        if (ticket == null){
+        if (ticket == null) {
             throw new RuntimeException("Please provide your parking ticket.");
         }
-        if (!parkingLot.getTickets().contains(ticket)){
+        if (!parkingLot.getTickets().contains(ticket)) {
             throw new RuntimeException("Unrecognized parking ticket.");
         }
         return true;
     }
 
-    public String checkPosition(List<ParkingLot> parkingLots) {
-        for (int lotIndex = 0; lotIndex < parkingLots.size(); lotIndex++) {
-            ParkingLot parkingLot = parkingLots.get(lotIndex);
-            if (parkingLot.getTickets().size() >= 10 && lotIndex == parkingLots.size() - 1)
-                return "Not enough position.";
+    public Boolean checkPosition(List<ParkingLot> parkingLots) {
+        boolean havePosition = false;
+//        for (int lotIndex = 0; lotIndex < parkingLots.size(); lotIndex++) {
+//            ParkingLot parkingLot = parkingLots.get(lotIndex);
+//            if (parkingLot.getTickets().size() >= 10 && lotIndex == parkingLots.size() - 1) {
+//                throw new RuntimeException("Not enough position.");
+//            }
+//        }
+        for (ParkingLot parkingLot : parkingLots) {
+            if (parkingLot.getTickets().size() < 10) {
+                havePosition = true;
+                break;
+            }
         }
-        return "Enough position.";
+        if (!havePosition){
+            throw new RuntimeException("Not enough position.");
+        }
+        return true;
 
     }
 
     public String selectPark(List<ParkingLot> parkingLotList, Ticket ticket) {
-        for (int parkIndex = 0; parkIndex < parkingLotList.size(); parkIndex++) {
-            ParkingLot parkingLot = parkingLotList.get(parkIndex);
-            if (parkingLot.getTickets().size() < 10) {
-                parkingLot.getTickets().add(ticket);
-                return String.format("Car %s park in parking lot %d, Your ticket number is %s", ticket.getCarId(), parkIndex + 1, ticket.getId());
+        if (checkPosition(parkingLotList)){
+            for (int parkIndex = 0; parkIndex < parkingLotList.size(); parkIndex++) {
+                ParkingLot parkingLot = parkingLotList.get(parkIndex);
+                if (parkingLot.getTickets().size() < 10) {
+                    parkingLot.getTickets().add(ticket);
+                    return String.format("Car %s park in parking lot %d, Your ticket number is %s", ticket.getCarId(), parkIndex + 1, ticket.getId());
+                }
             }
         }
-        return checkPosition(parkingLotList);
+        return null;
 
 
     }
@@ -68,9 +81,9 @@ public class ParkingBoy {
     }
 
     public String parkCar(List<ParkingLot> parkingLotList, Car car) {
-        if (checkPosition(parkingLotList).equals("Enough position."))
+        if (checkPosition(parkingLotList))
             return selectPark(parkingLotList, giveTicket(car));
-        return checkPosition(parkingLotList);
+        return null;
     }
 
 }

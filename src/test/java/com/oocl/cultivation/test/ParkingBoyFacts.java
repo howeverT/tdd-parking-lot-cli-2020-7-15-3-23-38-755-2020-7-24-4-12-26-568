@@ -114,9 +114,9 @@ class ParkingBoyFacts {
         ParkingLot parkingLot = generateUtils.getMoreParkingLotData();
         parkingLots.add(parkingLot);
 
-        String result = parkingBoy.checkPosition(parkingLots);
+        Throwable exception = assertThrows(RuntimeException.class, () -> parkingBoy.checkPosition( parkingLots));
 
-        assertEquals("Not enough position.", result);
+        assertEquals("Not enough position.", exception.getMessage());
 
     }
 
