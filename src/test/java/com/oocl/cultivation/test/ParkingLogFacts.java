@@ -12,7 +12,7 @@ import static org.mockito.Mockito.when;
 public class ParkingLogFacts {
 
     @Test
-    void should_return_cant_get_car_when_fetching_car_given_expect_ticket_1234_to_get_car_1_but_give_5678() {
+    void should_return_cant_get_car_when_isCorrectTicket_given_expect_ticket_1234_to_get_car_1_but_give_5678() {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         Ticket wrongTicket = new Ticket("5678", "C001");
 
@@ -24,7 +24,7 @@ public class ParkingLogFacts {
 
 
     @Test
-    void should_return_cant_get_car_when_fetching_car_given_no_ticket_to_get_car_C001() {
+    void should_return_cant_get_car_when_isCorrectTicket_given_no_ticket_to_get_car_C001() {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         Ticket wrongTicket = null;
 
@@ -34,7 +34,7 @@ public class ParkingLogFacts {
     }
 
     @Test
-    void should_return_cant_get_car_when_fetching_car_given_used_ticket_1234_to_get_car_C001() {
+    void should_return_cant_get_car_when_isCorrectTicket_given_used_ticket_1234_to_get_car_C001() {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         Ticket usedTicket = new Ticket("1234", "C001");
 
@@ -85,7 +85,7 @@ public class ParkingLogFacts {
     }
 
     @Test
-    void should_return_car_in_the_park_lot_when_parking_car__C001_given_car_C001() {
+    void should_return_car_in_the_park_lot_when_parking_car_C001_given_car_C001() {
         String generateTicket = "4567";
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingLot parkingLot = generateUtils.getParkingLotData();
