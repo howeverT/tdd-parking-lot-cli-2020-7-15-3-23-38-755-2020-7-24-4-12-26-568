@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 
 class ParkingBoyFacts {
     @Test
-    void should_return_ticket_when_parking_given_a_car() {
+    void should_return_ticket_1234_when_giveTicket_given_a_car() {
         String generateTicket = "1234";
         ParkingBoy parkingBoy = new ParkingBoy();
         TicketGenerator generator = Mockito.mock(TicketGenerator.class);
@@ -28,7 +28,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_car_when_fetching_car_given_a_ticket() {
+    void should_return_car_C001_when_giveCar_given_a_ticket() {
         ParkingBoy parkingBoy = new ParkingBoy();
         String carNum = "C001";
         String ticketNum = "1234";
@@ -40,7 +40,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_2_ticket_when_parking_given_2_car() {
+    void should_return_2_ticket_when_giveTicket_given_2_car() {
         String generateTicketOne = "1234";
         String generateTicketTwo = "5678";
         ParkingBoy parkingBoy = new ParkingBoy();
@@ -65,7 +65,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_correct_car_when_fetching_car_given_ticket_1234_and_5678() {
+    void should_return_correct_car_when_giveCar_given_ticket_1234_and_5678() {
         ParkingBoy parkingBoy = new ParkingBoy();
         Ticket ticket1 = new Ticket("1234", "C001");
         Ticket ticket2 = new Ticket("5678", "C002");
@@ -79,7 +79,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_Unrecognized_parking_ticket_when_fetching_car_given_fake_ticket_3456_to_get_car_C001() {
+    void should_return_Unrecognized_parking_ticket_when_queryTicket_given_fake_ticket_3456_to_get_car_C001() {
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         parkingLots.add(parkingLot);
@@ -93,7 +93,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_please_provide_your_parking_ticket_when_fetching_car_given_null_ticket() {
+    void should_return_please_provide_your_parking_ticket_when_queryTicket_given_null_ticket() {
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingLot parkingLot = generateUtils.getMoreParkingLotData();
         parkingLots.add(parkingLot);
@@ -107,7 +107,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_not_enough_position_when_parking_car_given_0_position() {
+    void should_return_not_enough_position_when_checkPosition_given_0_position() {
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingBoy parkingBoy = new ParkingBoy();
         ParkingLot parkingLot = generateUtils.getMoreParkingLotData();
@@ -120,7 +120,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_2_car_in_the_park_lot_1_when_parking_car_given_2_car() {
+    void should_return_2_car_in_the_park_lot_1_when_selectParkingLot_given_2_car() {
         ParkingBoy parkingBoy = new ParkingBoy();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
@@ -137,7 +137,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_1_car_in_the_park_lot_2_when_parking_car_given_11_car() {
+    void should_return_1_car_in_the_park_lot_2_when_park_car_given_11_car() {
         ParkingBoy parkingBoy = new ParkingBoy();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(new ParkingLot());
