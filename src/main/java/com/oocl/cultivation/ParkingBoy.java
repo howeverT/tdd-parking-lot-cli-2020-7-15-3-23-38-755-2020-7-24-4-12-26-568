@@ -35,12 +35,6 @@ public class ParkingBoy {
 
     public Boolean checkPosition(List<ParkingLot> parkingLots) {
         boolean havePosition = false;
-//        for (int lotIndex = 0; lotIndex < parkingLots.size(); lotIndex++) {
-//            ParkingLot parkingLot = parkingLots.get(lotIndex);
-//            if (parkingLot.getTickets().size() >= 10 && lotIndex == parkingLots.size() - 1) {
-//                throw new RuntimeException("Not enough position.");
-//            }
-//        }
         for (ParkingLot parkingLot : parkingLots) {
             if (parkingLot.getTickets().size() < 10) {
                 havePosition = true;
