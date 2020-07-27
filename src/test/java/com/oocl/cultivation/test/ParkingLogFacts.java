@@ -18,7 +18,7 @@ public class ParkingLogFacts {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         Ticket wrongTicket = new Ticket("5678", "C001");
 
-        String isRight = parkingLot.isRightTicket(wrongTicket);
+        String isRight = parkingLot.isCorrectTicket(wrongTicket);
 
         assertEquals("can't get car.", isRight);
 
@@ -30,7 +30,7 @@ public class ParkingLogFacts {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         Ticket wrongTicket = null;
 
-        String isRight = parkingLot.isRightTicket(wrongTicket);
+        String isRight = parkingLot.isCorrectTicket(wrongTicket);
 
         assertEquals("can't get car.", isRight);
     }
@@ -41,8 +41,8 @@ public class ParkingLogFacts {
 
         Ticket usedTicket = new Ticket("1234", "C001");
 
-        parkingLot.isRightTicket(usedTicket);
-        String result = parkingLot.isRightTicket(usedTicket);
+        parkingLot.isCorrectTicket(usedTicket);
+        String result = parkingLot.isCorrectTicket(usedTicket);
 
 
         assertEquals("can't get car.", result);

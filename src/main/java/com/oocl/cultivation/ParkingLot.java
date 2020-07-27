@@ -22,7 +22,7 @@ public class ParkingLot {
         this.tickets = tickets;
     }
 
-    public String isRightTicket(Ticket ticket) {
+    public String isCorrectTicket(Ticket ticket) {
         if (!tickets.contains(ticket))
             return "can't get car.";
         tickets.remove(ticket);
