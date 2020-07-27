@@ -7,7 +7,7 @@ import org.mockito.Mockito;
 
 import java.util.HashSet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class ParkingLogFacts {
@@ -18,9 +18,9 @@ public class ParkingLogFacts {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         Ticket wrongTicket = new Ticket("5678", "C001");
 
-        String isRight = parkingLot.isCorrectTicket(wrongTicket);
+        Throwable exception = assertThrows(RuntimeException.class, () -> parkingLot.isCorrectTicket(wrongTicket));
 
-        assertEquals("can't get car.", isRight);
+        assertEquals("can't get car.", exception.getMessage());
 
     }
 
@@ -30,22 +30,20 @@ public class ParkingLogFacts {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
         Ticket wrongTicket = null;
 
-        String isRight = parkingLot.isCorrectTicket(wrongTicket);
+        Throwable exception = assertThrows(RuntimeException.class, () -> parkingLot.isCorrectTicket(wrongTicket));
 
-        assertEquals("can't get car.", isRight);
+        assertEquals("can't get car.", exception.getMessage());
     }
 
     @Test
     void should_return_cant_get_car_when_fetching_car_given_used_ticket_1234_to_get_car_C001() {
         ParkingLot parkingLot = generateUtils.getParkingLotData();
-
         Ticket usedTicket = new Ticket("1234", "C001");
 
         parkingLot.isCorrectTicket(usedTicket);
-        String result = parkingLot.isCorrectTicket(usedTicket);
+        Throwable exception = assertThrows(RuntimeException.class, () -> parkingLot.isCorrectTicket(usedTicket));
 
-
-        assertEquals("can't get car.", result);
+        assertEquals("can't get car.", exception.getMessage());
 
 
     }

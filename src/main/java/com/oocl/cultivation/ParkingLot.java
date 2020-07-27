@@ -22,11 +22,12 @@ public class ParkingLot {
         this.tickets = tickets;
     }
 
-    public String isCorrectTicket(Ticket ticket) {
-        if (!tickets.contains(ticket))
-            return "can't get car.";
+    public Boolean isCorrectTicket(Ticket ticket) {
+        if (!tickets.contains(ticket)){
+            throw new RuntimeException("can't get car.");
+        }
         tickets.remove(ticket);
-        return new ParkingBoy().giveCar(ticket).getCarId();
+        return true;
     }
 
     public boolean canPark(Car car) {
