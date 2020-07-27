@@ -81,14 +81,10 @@ class ParkingBoyFacts {
     @Test
     void should_return_Unrecognized_parking_ticket_when_fetching_car_given_fake_ticket_3456_to_get_car_C001() {
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = generateUtils.getParkingLotData();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy();
-        HashSet<Ticket> ticketHashSet = new HashSet<>();
-        ticketHashSet.add(new Ticket("1234", "C001"));
-        ticketHashSet.add(new Ticket("5678", "C002"));
         Ticket fakeTicket = new Ticket("3456", "C002");
-        parkingLot.setTickets(ticketHashSet);
 
         String result = parkingBoy.queryTicket(fakeTicket, parkingLot);
 
@@ -100,14 +96,10 @@ class ParkingBoyFacts {
     @Test
     void should_return_please_provide_your_parking_ticket_when_fetching_car_given_null_ticket() {
         List<ParkingLot> parkingLots = new ArrayList<>();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = generateUtils.getMoreParkingLotData();
         parkingLots.add(parkingLot);
         ParkingBoy parkingBoy = new ParkingBoy();
-        HashSet<Ticket> ticketHashSet = new HashSet<>();
-        ticketHashSet.add(new Ticket("1234", "C001"));
-        ticketHashSet.add(new Ticket("5678", "C002"));
         Ticket nullTicket = null;
-        parkingLot.setTickets(ticketHashSet);
 
         String result = parkingBoy.queryTicket(nullTicket, parkingLot);
 
@@ -119,20 +111,8 @@ class ParkingBoyFacts {
     void should_return_not_enough_position_when_parking_car_given_0_position() {
         List<ParkingLot> parkingLots = new ArrayList<>();
         ParkingBoy parkingBoy = new ParkingBoy();
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = generateUtils.getMoreParkingLotData();
         parkingLots.add(parkingLot);
-        HashSet<Ticket> ticketHashSet = new HashSet<>();
-        ticketHashSet.add(new Ticket("C001"));
-        ticketHashSet.add(new Ticket("C002"));
-        ticketHashSet.add(new Ticket("C003"));
-        ticketHashSet.add(new Ticket("C011"));
-        ticketHashSet.add(new Ticket("C005"));
-        ticketHashSet.add(new Ticket("C006"));
-        ticketHashSet.add(new Ticket("C007"));
-        ticketHashSet.add(new Ticket("C008"));
-        ticketHashSet.add(new Ticket("C009"));
-        ticketHashSet.add(new Ticket("C010"));
-        parkingLot.setTickets(ticketHashSet);
 
         String result = parkingBoy.checkPosition(parkingLots);
 

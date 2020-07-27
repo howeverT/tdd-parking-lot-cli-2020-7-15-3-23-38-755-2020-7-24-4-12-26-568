@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.ParkingLot;
-import com.oocl.cultivation.SmartParkingBoy;
-import com.oocl.cultivation.Ticket;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -68,11 +65,7 @@ public class SmartParkingBoyFacts {
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
         List<ParkingLot> parkingLots = new ArrayList<>();
         Ticket ticket = new Ticket("1234", "C001");
-        parkingLots.add(new ParkingLot());
-        HashSet<Ticket> ticketHashSet = new HashSet<>();
-        ticketHashSet.add(new Ticket("1234", "C001"));
-        ticketHashSet.add(new Ticket("5678", "C002"));
-        parkingLots.get(0).setTickets(ticketHashSet);
+        parkingLots.add(generateUtils.getParkingLotData());
 
         Car fetchCar = smartParkingBoy.fetchCar(ticket, parkingLots);
 
