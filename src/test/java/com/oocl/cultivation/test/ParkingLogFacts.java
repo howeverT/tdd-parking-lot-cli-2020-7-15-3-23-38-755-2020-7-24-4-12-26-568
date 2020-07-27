@@ -5,13 +5,11 @@ import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.util.HashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 public class ParkingLogFacts {
-    HashSet<Ticket> ticketSet = new HashSet<>();
 
     @Test
     void should_return_cant_get_car_when_fetching_car_given_expect_ticket_1234_to_get_car_1_but_give_5678() {
