@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 class ParkingBoyFacts {
@@ -86,10 +87,9 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy();
         Ticket fakeTicket = new Ticket("3456", "C002");
 
-        String result = parkingBoy.queryTicket(fakeTicket, parkingLot);
+        Throwable exception = assertThrows(RuntimeException.class, () -> parkingBoy.queryTicket(fakeTicket, parkingLot));
 
-
-        assertEquals("Unrecognized parking ticket.", result);
+        assertEquals("Unrecognized parking ticket.", exception.getMessage());
 
     }
 
@@ -101,10 +101,10 @@ class ParkingBoyFacts {
         ParkingBoy parkingBoy = new ParkingBoy();
         Ticket nullTicket = null;
 
-        String result = parkingBoy.queryTicket(nullTicket, parkingLot);
+        Throwable exception = assertThrows(RuntimeException.class, () -> parkingBoy.queryTicket(nullTicket, parkingLot));
 
+        assertEquals("Please provide your parking ticket.", exception.getMessage());
 
-        assertEquals("Please provide your parking ticket.", result);
     }
 
     @Test
